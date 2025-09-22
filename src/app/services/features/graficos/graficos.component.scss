@@ -1,0 +1,33 @@
+.container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  text-align: center;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #343a40;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #495057;
+  }
+
+  canvas {
+    width: 100% !important;
+    max-width: 800px;
+    height: 400px !important;
+    margin-bottom: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 1rem;
+  }
+}

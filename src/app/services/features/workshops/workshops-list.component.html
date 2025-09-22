@@ -1,0 +1,22 @@
+<div class="header">
+  <h2>Workshops</h2>
+  <button (click)="novoWorkshop()">Novo Workshop</button>
+</div>
+
+<div class="filters">
+  <input type="text" placeholder="Filtrar por nome" (input)="filterByName($event)">
+  <input type="date" (change)="filterByDate($event)">
+</div>
+
+<div class="workshop-item" *ngFor="let workshop of filteredWorkshops">
+  <div class="workshop-info">
+    <span>{{ workshop.nome }}</span>
+    <span>{{ workshop.dataRealizacao | date:'yyyy-MM-dd' }}</span>
+  </div>
+
+  <div class="workshop-actions">
+    <button (click)="gerarAta(workshop)">Gerar Ata</button>
+    <button (click)="addColaborador(workshop.id)">Adicionar Colaborador</button>
+    <button (click)="verColaboradores(workshop.id)">Ver Colaboradores</button>
+  </div>
+</div>
