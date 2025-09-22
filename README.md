@@ -19,8 +19,8 @@ D3safioFast/
 
 ## Pré-requisitos
 
-- [Node.js](https://nodejs.org/) (v18 ou superior)
-- [Angular CLI](https://angular.io/cli) (`npm install -g @angular/cli`)
+- [Node.js](https://nodejs.org/) (v18 ou superior)  
+- [Angular CLI](https://angular.io/cli) (`npm install -g @angular/cli`)  
 - [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
 ---
@@ -41,14 +41,14 @@ dotnet build
 dotnet run
 ```
 
-- O backend vai rodar em `https://localhost:7084` (ou porta configurada no projeto).
+- O backend será executado em `https://localhost:7084` (ou porta configurada no projeto).
 
 ---
 
 ## Executando o Frontend
 
 1. Abra outro terminal na pasta `frontend/`.
-2. Instale as dependências do projeto:
+2. Instale as dependências:
 
 ```bash
 npm install
@@ -60,7 +60,7 @@ npm install
 ng serve
 ```
 
-- O frontend vai rodar em `http://localhost:4200`.
+- O frontend será executado em `http://localhost:4200`.
 
 ---
 
@@ -73,9 +73,25 @@ Para acessar o sistema, utilize o usuário de teste:
 
 ---
 
+## Endpoints da API
+
+| Método | Endpoint | Descrição |
+|--------|---------|-----------|
+| GET    | `/api/workshops` | Listar todos os workshops |
+| GET    | `/api/workshops/{id}` | Detalhes de um workshop específico |
+| POST   | `/api/workshops` | Criar novo workshop |
+| GET    | `/api/atas` | Listar todas as atas |
+| POST   | `/api/atas` | Criar nova ata |
+| GET    | `/api/pets` | Listar todos os pets |
+| POST   | `/api/pets` | Criar novo pet |
+| POST   | `/api/auth/login` | Login do usuário |
+
+> Certifique-se de que o backend esteja rodando antes de testar os endpoints.
+
+---
+
 ## Observações
 
-- Certifique-se de que o backend esteja rodando antes de iniciar o frontend.  
 - As URLs da API estão configuradas em `frontend/src/environments/environment.ts`.  
 - Para testar funcionalidades como cadastro de workshops, pets e atas, siga a navegação do sistema no frontend.
 
@@ -85,5 +101,4 @@ Para acessar o sistema, utilize o usuário de teste:
 
 - **Frontend:** Angular 17, TypeScript, HTML, SCSS  
 - **Backend:** .NET 7, C#, Entity Framework Core  
-- **Banco de dados:** (configuração conforme o projeto, ex.: SQL Server ou SQLite)
-
+- **Banco de dados:** SQL Server (ou conforme configuração no backend)
