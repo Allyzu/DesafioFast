@@ -1,0 +1,89 @@
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; // fonte aplicada
+
+  .header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 1.8rem;
+      color: #343a40;
+      font-family: inherit;
+    }
+  }
+
+  .workshop-info {
+    margin-bottom: 1.5rem;
+
+    p {
+      margin: 0.3rem 0;
+      font-size: 1rem;
+      color: #495057;
+      font-family: inherit;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+
+    input {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ced4da;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+
+      button {
+        flex: 1;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.3s;
+
+        &:hover {
+          transform: translateY(-1px);
+        }
+      }
+
+      .adicionar {
+        background-color: #007bff;
+        color: white;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+
+      .voltar {
+        background-color: #6c757d;
+        color: white;
+
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+    }
+  }
+}

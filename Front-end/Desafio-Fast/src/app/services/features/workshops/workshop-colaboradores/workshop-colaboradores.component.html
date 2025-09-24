@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Colaboradores do Workshop: {{ workshopNome }}</h2>
+
+  <ul>
+    <li *ngFor="let colaborador of colaboradores">
+      {{ colaborador.nome }}
+    </li>
+  </ul>
+
+  <button (click)="voltar()">Voltar</button>
+</div>

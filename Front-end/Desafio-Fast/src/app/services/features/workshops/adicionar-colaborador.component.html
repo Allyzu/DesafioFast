@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="header">
+    <h2>Adicionar Colaborador</h2>
+  </div>
+
+  <div class="workshop-info">
+    <p><strong>Workshop:</strong> {{ workshopNome }}</p>
+    <p><strong>Descrição:</strong> {{ workshopDescricao }}</p>
+  </div>
+
+  <div class="form">
+    <label for="colaborador">Nome do Colaborador:</label>
+    <input type="text" id="colaborador" [(ngModel)]="colaboradorNome" placeholder="Digite o nome do colaborador">
+
+    <div class="buttons">
+      <button class="adicionar" (click)="adicionarColaborador()">Adicionar</button>
+      <button class="voltar" (click)="voltar()">Voltar</button>
+    </div>
+  </div>
+</div>

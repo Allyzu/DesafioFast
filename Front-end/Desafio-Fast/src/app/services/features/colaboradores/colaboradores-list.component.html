@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Lista de Colaboradores</h2>
+
+  <button (click)="novoColaborador()">Novo Colaborador</button>
+  <button (click)="listarPorOrdemAlfabetica()">Listar por ordem alfabética</button>
+
+  <ul>
+    <li *ngFor="let colaborador of colaboradores">
+      {{ colaborador.nome }}
+    </li>
+  </ul>
+</div>

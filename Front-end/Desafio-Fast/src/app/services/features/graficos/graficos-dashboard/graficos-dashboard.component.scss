@@ -1,0 +1,45 @@
+.graficos-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1rem;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: #007bff; // azul moderno
+    margin-bottom: 1rem;
+  }
+
+  .grafico {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .canvas-wrapper {
+      width: 100%;
+      max-width: 700px;
+      aspect-ratio: 1.6 / 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; // fonte aplicada
+
+  h2 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: inherit;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: inherit;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #343a40;
+    font-size: 1.5rem;
+    font-family: inherit;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-family: inherit;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ffffff;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      span {
+        font-weight: 500;
+        color: #495057;
+        font-family: inherit;
+      }
+
+      button {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        font-family: inherit;
+
+        &:hover {
+          background-color: #c0392b;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+}
