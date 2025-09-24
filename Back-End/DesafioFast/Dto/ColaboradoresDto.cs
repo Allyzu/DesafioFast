@@ -1,4 +1,0 @@
-﻿namespace DesafioFast.Dto
-{
-    
-}
