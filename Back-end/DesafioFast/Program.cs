@@ -100,6 +100,7 @@ builder.Services.AddDbContext<ApppDbContext>(options =>
 builder.Services.AddSingleton<TokenService>();
 
 var app = builder.Build();
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 
 // Configure o pipeline
 if (app.Environment.IsDevelopment())

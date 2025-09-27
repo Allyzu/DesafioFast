@@ -350,7 +350,6 @@ C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\s
 C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\DesafioF.0CC0691C.Up2Date
 C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\DesafioFast.dll
 C:\Users\O\Documents\Project\DesafioFast\Back-end\DesafioFast\obj\Debug\net8.0\refint\DesafioFast.dll
