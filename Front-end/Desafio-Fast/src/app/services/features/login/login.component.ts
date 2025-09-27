@@ -16,13 +16,20 @@ export class LoginComponent {
   Senha = '';
   error = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, ) {}
+
+  ngOnInit() {
+  // Se já estiver logado e estiver indo para login, removemos o token
+  if (this.authService.isLoggedIn()) {
+    this.authService.logout();
+  }
+}
 
   login() {
     this.authService.login({ email: this.Email, senha: this.Senha })
       .subscribe({
         next: (res) => {
-         // localStorage.setItem('token', res.token); // salva token
+           this.authService.setLoggedIn(true);
           this.router.navigate(['/colaboradores']);
         },
         error: () => {

@@ -20,4 +20,10 @@ export class AppComponent {
   title = 'Desafiofast';
 
   constructor(public authService: AuthService) {}
+
+  ngOnInit(): void {
+  this.authService.setLoggedIn(this.authService.isLoggedIn());
+}
+
+  
 }

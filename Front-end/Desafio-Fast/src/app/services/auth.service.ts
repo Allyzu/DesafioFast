@@ -12,11 +12,15 @@ interface LoginResponse {
 })
 export class AuthService {
   private tokenKey = 'auth_token';
-  //private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   public isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+   constructor(private http: HttpClient) {
+    // Inicializa o estado assim que o serviço é criado
+    const token = localStorage.getItem(this.tokenKey);
+    this.isLoggedInSubject.next(!!token);
+  }
+
 
   // Verifica se já existe token no localStorage
   private hasToken(): boolean {
@@ -28,7 +32,9 @@ export class AuthService {
     return this.http.post<LoginResponse>(`${environment.apiUrl}/auth/login`, credentials)
       .pipe(
         tap(res => {
+          // salva o token no localStorage
           localStorage.setItem(this.tokenKey, res.token);
+          // atualiza o BehaviorSubject para mostrar a navbar
           this.isLoggedInSubject.next(true);
         })
       );
@@ -55,6 +61,10 @@ export class AuthService {
       Authorization: token ? `Bearer ${token}` : ''
     });
   }
+
+  setLoggedIn(value: boolean) {
+  this.isLoggedInSubject.next(value);
+}
 
   // Função simples de verificação de login (boolean)
   isLoggedIn(): boolean {

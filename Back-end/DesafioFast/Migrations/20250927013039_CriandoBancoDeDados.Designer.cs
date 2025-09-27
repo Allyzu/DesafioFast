@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DesafioFast.Migrations
 {
     [DbContext(typeof(ApppDbContext))]
-    [Migration("20250919025642_CriandoBD")]
-    partial class CriandoBD
+    [Migration("20250927013039_CriandoBancoDeDados")]
+    partial class CriandoBancoDeDados
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

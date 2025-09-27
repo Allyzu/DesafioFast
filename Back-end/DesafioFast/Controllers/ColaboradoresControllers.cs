@@ -28,7 +28,7 @@ namespace DesafioFast.Controllers
             return Ok(resposta); // Sempre 200, o Sucesso indica sucesso ou falha
         }
 
-        [HttpPost("{colaboradorId}/workshops/{workshopId}")]
+        [HttpPost("{nome}/workshops/{workshopId}")]
         public async Task<IActionResult> AdicionarColaboradorEmWorkshop(string nome, int workshopId)
         {
             var (sucesso, mensagem) = await _colaboradorService.AdicionarColaboradorEmWorkshop(nome, workshopId);

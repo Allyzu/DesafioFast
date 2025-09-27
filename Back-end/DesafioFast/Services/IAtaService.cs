@@ -12,5 +12,7 @@ namespace DesafioFast.Services
         Task<ResponseModel<AtaModels?>> AdicionarColaborador(int ataId, int colaboradorId);
         Task<ResponseModel<AtaModels?>> RemoverColaborador(int ataId, int colaboradorId);
         Task<ResponseModel<AtaModels?>> GetAtaById(int ataId);
+
+        Task<ResponseModel<AtaModels?>> GetAtaByWorkshopId(int workshopId);
     }
 }

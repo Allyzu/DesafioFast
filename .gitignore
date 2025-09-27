@@ -1,0 +1,17 @@
+# ----------------------
+# Angular / Front-end
+# ----------------------
+node_modules/
+dist/
+*.log
+
+# ----------------------
+# .NET / Back-end
+# ----------------------
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.pdb
+*.log

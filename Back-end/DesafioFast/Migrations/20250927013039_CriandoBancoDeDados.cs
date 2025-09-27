@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DesafioFast.Migrations
 {
     /// <inheritdoc />
-    public partial class CriandoBD : Migration
+    public partial class CriandoBancoDeDados : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

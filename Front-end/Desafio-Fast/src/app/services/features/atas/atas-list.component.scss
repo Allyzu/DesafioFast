@@ -1,41 +1,85 @@
+@import '../../../styles/variables';
+
 .container {
   max-width: 600px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  background-color: $color-gray-light;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-medium;
   text-align: center;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; // fonte aplicada
+  font-family: $font-base;
 
   h2 {
-    font-size: 2rem;
-    color: #343a40;
     margin-bottom: 2rem;
-    font-family: inherit;
+    font-size: 2rem;
+    color: $color-gray-dark;
   }
 
   ul {
     list-style: none;
     padding: 0;
+    margin-top: 2rem;
 
     li {
-      background-color: #ffffff;
-      margin-bottom: 1rem;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      cursor: pointer;
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      background-color: $color-white;
+      border-radius: 6px;
+      box-shadow: $box-shadow-light;
       font-weight: 500;
-      color: #495057;
-      font-family: inherit; // mantém a mesma fonte
-      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+      color: $color-gray-dark;
+      transition: background-color 0.3s;
 
       &:hover {
-        background-color: #e9ecef;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        background-color: lighten($color-gray-light, 5%);
       }
+    }
+  }
+
+  button {
+    margin: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .container {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    button {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .container {
+    margin: 1rem auto;
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    button {
+      font-size: 0.9rem;
     }
   }
 }

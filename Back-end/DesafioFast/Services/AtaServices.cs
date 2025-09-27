@@ -183,45 +183,35 @@ namespace DesafioFast.Services
         {
             var resposta = new ResponseModel<AtaModels?>();
 
-            try
+            var ata = await _context.Atas
+                .Include(a => a.ColaboradoresList)
+                .FirstOrDefaultAsync(a => a.Id == ataId);
+
+            if (ata == null)
             {
-                var ata = await _context.Atas
-                    .Include(a => a.ColaboradoresList)
-                    .FirstOrDefaultAsync(a => a.Id == ataId);
+                resposta.Sucesso = false;
+                resposta.Mensagem = "Ata não encontrada.";
+                return resposta;
+            }
 
-                if (ata == null)
-                {
-                    resposta.Sucesso = false;
-                    resposta.Mensagem = "Ata não encontrada.";
-                    resposta.Dados = null;
-                    return resposta;
-                }
-
-                var colaborador = ata.ColaboradoresList.FirstOrDefault(c => c.Id == colaboradorId);
-                if (colaborador == null)
-                {
-                    resposta.Sucesso = false;
-                    resposta.Mensagem = "Colaborador não encontrado na ata.";
-                    resposta.Dados = ata; // retorna a ata atual mesmo assim
-                    return resposta;
-                }
-
-                ata.ColaboradoresList.Remove(colaborador);
-                await _context.SaveChangesAsync();
-
-                resposta.Sucesso = true;
-                resposta.Mensagem = "Colaborador removido com sucesso.";
+            var colaborador = ata.ColaboradoresList.FirstOrDefault(c => c.Id == colaboradorId);
+            if (colaborador == null)
+            {
+                resposta.Sucesso = false;
+                resposta.Mensagem = "Colaborador não encontrado na ata.";
                 resposta.Dados = ata;
                 return resposta;
             }
-            catch (Exception ex)
-            {
-                resposta.Sucesso = false;
-                resposta.Mensagem = ex.Message;
-                resposta.Dados = null;
-                return resposta;
-            }
+
+            ata.ColaboradoresList.Remove(colaborador);
+            await _context.SaveChangesAsync();
+
+            resposta.Sucesso = true;
+            resposta.Mensagem = "Colaborador removido com sucesso.";
+            resposta.Dados = ata;
+            return resposta;
         }
+
 
         // Buscar ata por ID, incluindo colaboradores e workshop
         public async Task<ResponseModel<AtaModels?>> GetAtaById(int ataId)
@@ -259,6 +249,29 @@ namespace DesafioFast.Services
                 resposta.Dados = null;
                 return resposta;
             }
+        }
+
+
+        public async Task<ResponseModel<AtaModels?>> GetAtaByWorkshopId(int workshopId)
+        {
+            var resposta = new ResponseModel<AtaModels?>();
+            var ata = await _context.Atas
+                .Include(a => a.Workshop)
+                .Include(a => a.ColaboradoresList)
+                .FirstOrDefaultAsync(a => a.WorkshopId == workshopId);
+
+            if (ata == null)
+            {
+                resposta.Sucesso = false;
+                resposta.Mensagem = "Ata não encontrada para este workshop.";
+                resposta.Dados = null;
+                return resposta;
+            }
+
+            resposta.Sucesso = true;
+            resposta.Mensagem = "Ata encontrada com sucesso.";
+            resposta.Dados = ata;
+            return resposta;
         }
 
 

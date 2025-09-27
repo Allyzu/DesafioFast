@@ -37,6 +37,12 @@ export class AtaService {
     });
   }
 
+  getByWorkshop(workshopId: number) {
+    return this.http.get(`${this.apiUrl}/workshop/${workshopId}`, {
+      headers: this.authService.getAuthHeaders()
+    });
+  }
+
   // Remover colaborador da ata
   removerColaborador(ataId: number, colaboradorId: number) {
     return this.http.delete(`${this.apiUrl}/${ataId}/colaboradores/${colaboradorId}`, {

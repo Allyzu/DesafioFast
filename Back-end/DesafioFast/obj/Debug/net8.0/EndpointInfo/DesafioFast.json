@@ -137,6 +137,29 @@
         }
       }
     },
+    "/api/Atas/workshop/{workshopId}": {
+      "get": {
+        "tags": [
+          "Atas"
+        ],
+        "parameters": [
+          {
+            "name": "workshopId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/colaboradores/Criarcolaboradores": {
       "post": {
         "tags": [
@@ -168,7 +191,7 @@
         }
       }
     },
-    "/api/colaboradores/{colaboradorId}/workshops/{workshopId}": {
+    "/api/colaboradores/{nome}/workshops/{workshopId}": {
       "post": {
         "tags": [
           "ColaboradoresControllers"
@@ -176,7 +199,8 @@
         "parameters": [
           {
             "name": "nome",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -188,14 +212,6 @@
             "schema": {
               "type": "integer",
               "format": "int32"
-            }
-          },
-          {
-            "name": "colaboradorId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           }
         ],

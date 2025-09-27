@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DesafioFast")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+744ff660c4392598c87fbf35394afda4c9555b7c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+399edb3d2db891a938e0dd49f0018c7febf22c0d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DesafioFast")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DesafioFast")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

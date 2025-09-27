@@ -37,16 +37,4 @@ export class ColaboradorService {
     });
   }
 
-  adicionarAoWorkshop(nome: string, workshopId: number) {
-    const token = localStorage.getItem('token'); 
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-
-    return this.http.post(
-      `${this.apiUrl}/${nome}/workshops/${workshopId}`,
-      {},
-      { headers }
-    );
-  }
 }

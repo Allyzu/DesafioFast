@@ -21,22 +21,46 @@ export class AtasDetailComponent implements OnInit {
   this.loadAta(id);
 }
 
-loadAta(id: number) {
-  this.service.getById(id).subscribe((data: any) => {
-    this.ata = data; 
-    this.colaboradores = data.colaboradores; // já vem com id e nome corretos
-  });
-}
+  loadAta(id: number) {
+    this.service.getById(id).subscribe({
+      next: (res: any) => {
+        this.ata = res.dados;
+        this.colaboradores = res.dados?.colaboradores || [];
+      },
+      error: (err) => {
+        console.error('Erro ao carregar ata:', err);
+        this.ata = null;
+        this.colaboradores = [];
+      }
+    });
+  }
 
 removerColaborador(colaboradorId: number) {
   if (!confirm('Tem certeza que deseja remover este colaborador?')) return;
 
   this.service.removerColaborador(this.ata.id, colaboradorId).subscribe({
-    next: () => {
-      this.colaboradores = this.colaboradores.filter(c => c.id !== colaboradorId);
+    next: (res: any) => {
+      if (res.sucesso) {
+        // Atualiza a lista local de colaboradores
+        this.colaboradores = this.colaboradores.filter(c => c.id !== colaboradorId);
+
+        // Exibe a mensagem de sucesso retornada do backend
+        alert(res.mensagem);
+      } else {
+        // Mensagem de erro retornada do backend
+        alert(res.mensagem || 'Erro ao remover colaborador.');
+        console.warn('Erro ao remover colaborador:', res);
+      }
     },
-    error: (err) => console.error('Erro ao remover colaborador:', err)
+    error: (err: any) => {
+      // Log detalhado sem quebrar a interface
+      console.error('Erro inesperado ao remover colaborador:', err);
+      alert('Ocorreu um erro inesperado ao remover o colaborador.');
+    }
   });
 }
+
+
+
 
 }

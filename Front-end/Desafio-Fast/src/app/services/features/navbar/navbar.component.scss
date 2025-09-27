@@ -1,56 +1,57 @@
+@import '../../../styles/variables';
+
 .navbar {
   display: flex;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #1e3a8a;
-  color: #ffffff;
-  border-radius: 0 0 12px 12px;
+  background-color: $color-primary;
+  color: $color-white;
+  border-radius: 0 0 $border-radius $border-radius;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; // fonte moderna e minimalista
+  font-family: $font-base;
+
+  overflow-x: auto; // permite rolagem horizontal em telas pequenas
+  flex-wrap: nowrap;
 
   a {
-    color: #ffffff;
+    color: $color-white;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
     margin-right: 1rem;
     border-radius: 6px;
     transition: background-color 0.2s, color 0.2s;
-    font-family: inherit; // mantém a fonte da navbar
+    flex-shrink: 0; // não encolhe
 
     &.active {
       font-weight: 600;
-      color: #90caf9;
+      color: lighten($color-primary, 40%);
     }
 
     &:hover {
       background-color: rgba(144, 202, 249, 0.15);
-      color: #90caf9;
+      color: lighten($color-primary, 40%);
     }
   }
 
   button {
     margin-left: auto;
-    background-color: #ffffff;
+    background-color: $color-white;
     border: none;
-    color: #1e3a8a;
+    color: $color-primary;
     padding: 0.5rem 1.2rem;
     border-radius: 6px;
     font-weight: 500;
     cursor: pointer;
-    font-family: inherit;
     transition: background-color 0.2s, transform 0.1s;
+    flex-shrink: 0; // não encolhe
 
     &:hover {
-      background-color: #e3f2fd;
+      background-color: lighten($color-white, 5%);
       transform: translateY(-1px);
-    }
-
-    &:active {
-      transform: translateY(0);
     }
   }
 }

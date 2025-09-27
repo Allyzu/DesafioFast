@@ -1,4 +1,4 @@
-<nav class="navbar" >
+<nav *ngIf="authService.isLoggedIn$ | async" class="navbar">
   <a routerLink="/colaboradores">Colaboradores</a>
   <a routerLink="/workshops" routerLinkActive="active">Workshops</a>
   <a routerLink="/atas" routerLinkActive="active">Atas</a>

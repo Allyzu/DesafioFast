@@ -10,19 +10,21 @@ import { ColaboradoresOrdenadosComponent } from '../app/services/features/colabo
 import { WorkshopColaboradoresComponent } from './services/features/workshops/workshop-colaboradores/workshop-colaboradores.component';
 import { GraficosDashboardComponent } from './services/features/graficos/graficos-dashboard/graficos-dashboard.component';
 import { AdicionarColaboradorComponent } from './services/features/workshops/adicionar-colaborador.component';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'colaboradores', component: ColaboradoresListComponent },
-  { path: 'colaboradores/novo', component: ColaboradoresFormComponent },
-  { path: 'colaboradores/ordenados', component: ColaboradoresOrdenadosComponent },
-  { path: 'workshops', component: WorkshopsListComponent },
-  { path: 'workshops/novo', component: WorkshopsFormComponent },
-  { path: 'workshops/adicionar-colaborador', component: AdicionarColaboradorComponent}, // <- nova rota
-  { path: 'workshops/:id/colaboradores', component: WorkshopColaboradoresComponent},
-  { path: 'atas', component: AtasListComponent }, 
-  { path: 'atas/:id', component: AtasDetailComponent },
-  { path: 'graficos', component: GraficosDashboardComponent },
+
+  { path: 'colaboradores', component: ColaboradoresListComponent, canActivate: [AuthGuard]},
+  { path: 'colaboradores/novo', component: ColaboradoresFormComponent,  canActivate: [AuthGuard]},
+  { path: 'colaboradores/ordenados', component: ColaboradoresOrdenadosComponent, canActivate: [AuthGuard]},
+  { path: 'workshops', component: WorkshopsListComponent, canActivate: [AuthGuard]},
+  { path: 'workshops/novo', component: WorkshopsFormComponent, canActivate: [AuthGuard]},
+  { path: 'workshops/adicionar-colaborador', component: AdicionarColaboradorComponent,  canActivate: [AuthGuard]}, 
+  { path: 'workshops/:id/colaboradores', component: WorkshopColaboradoresComponent, canActivate: [AuthGuard]},
+  { path: 'atas', component: AtasListComponent, canActivate: [AuthGuard]}, 
+  { path: 'atas/:id', component: AtasDetailComponent, canActivate: [AuthGuard]},
+  { path: 'graficos', component: GraficosDashboardComponent, canActivate: [AuthGuard]},
 ];
 

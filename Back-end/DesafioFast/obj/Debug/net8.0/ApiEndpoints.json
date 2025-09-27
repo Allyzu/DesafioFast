@@ -94,6 +94,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DesafioFast.Controllers.AtasController",
+    "Method": "GetAtaByWorkshop",
+    "RelativePath": "api/Atas/workshop/{workshopId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workshopId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DesafioFast.Controllers.LoginController",
     "Method": "Anonymous",
     "RelativePath": "api/auth/anonymous",
@@ -162,7 +178,7 @@
   {
     "ContainingType": "DesafioFast.Controllers.ColaboradoresControllers",
     "Method": "AdicionarColaboradorEmWorkshop",
-    "RelativePath": "api/colaboradores/{colaboradorId}/workshops/{workshopId}",
+    "RelativePath": "api/colaboradores/{nome}/workshops/{workshopId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -170,16 +186,11 @@
       {
         "Name": "nome",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "workshopId",
         "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "colaboradorId",
-        "Type": "",
         "IsRequired": true
       }
     ],

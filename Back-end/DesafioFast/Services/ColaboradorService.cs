@@ -92,31 +92,31 @@ namespace DesafioFast.Services
 
         public async Task<(bool sucesso, string mensagem)> AdicionarColaboradorEmWorkshop(string nome, int workshopId)
         {
-            // Busca o colaborador pelo nome
-            var colaborador = await _context.Colaboradores
-                .FirstOrDefaultAsync(c => c.Nome == nome);
-
+            var colaborador = await _context.Colaboradores.FirstOrDefaultAsync(c => c.Nome == nome);
             if (colaborador == null)
                 return (false, "Colaborador não existe.");
 
-            // Busca o workshop e inclui os colaboradores
-            var workshop = await _context.Workshops
-                .Include(w => w.Colaboradores)
-                .FirstOrDefaultAsync(w => w.Id == workshopId);
-
+            var workshop = await _context.Workshops.Include(w => w.Colaboradores).FirstOrDefaultAsync(w => w.Id == workshopId);
             if (workshop == null)
                 return (false, "Workshop não encontrado.");
 
-            // Verifica se o colaborador já está no workshop
             if (workshop.Colaboradores.Any(c => c.Id == colaborador.Id))
                 return (false, "Colaborador já está neste workshop.");
 
-            // Adiciona o colaborador
             workshop.Colaboradores.Add(colaborador);
             await _context.SaveChangesAsync();
 
+            // Atualizar a ata automaticamente, se existir
+            var ata = await _context.Atas.Include(a => a.ColaboradoresList).FirstOrDefaultAsync(a => a.WorkshopId == workshopId);
+            if (ata != null && !ata.ColaboradoresList.Any(c => c.Id == colaborador.Id))
+            {
+                ata.ColaboradoresList.Add(colaborador);
+                await _context.SaveChangesAsync();
+            }
+
             return (true, "Colaborador adicionado com sucesso.");
         }
+
 
         /// <summary>
         /// Retorna todos os colaboradores em ordem alfabética
