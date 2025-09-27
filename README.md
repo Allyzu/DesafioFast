@@ -39,7 +39,7 @@ dotnet run
 Backend rodando em: https://localhost:7084 (ou porta configurada no projeto)
 ```
 
-Pelo Visual Studio
+Pelo Visual Studio (Recomendado)
 
 1 - Abra DesafioFast.sln.
 
